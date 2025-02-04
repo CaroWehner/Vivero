@@ -33,8 +33,8 @@ public class App {
         // Imprimo Codigo, nombre y apellido de todos los clientes registrados
         pruebasClientes.listarTodosLosClientes();
         // Llamo al metodo eliminar, enviado en este caso ID 4 de producto.
-        pruebasProductos.eliminarProducto(5);
-        System.out.println("Se elimino el producto 5");
+        pruebasProductos.eliminarProducto(6);
+        System.out.println("Se elimino el producto 6");
         // Consulto la BBDD para ver datos del registro Cliente codigo_Cliente
         // especifico
         Cliente clienteBuscado = new Cliente();clienteBuscado=pruebasClientes.buscarClientePorCodigo(9);if(clienteBuscado!=null){

@@ -30,7 +30,27 @@ public class ClienteServicio {
         }
     }
 
-    public void validarTablaNull(){
-        
+    public void listarLosClientes() throws Exception{
+        cd.listarTodosLosClientes();
+    }
+    public void validacionClienteExistente(Cliente clienteValidar) throws Exception{
+        if(clienteValidar == null)
+        {
+            throw new Exception("El cliente no existe.");
+        }
+
+    }
+
+    public void validacionParametroCliente(int codigo) throws Exception{
+        if(codigo < 1){
+            throw new Exception("El codigo debe ser mayor a 0");
+        }
+    }
+
+    public Cliente mostrarClienteCodigo (int codigo) throws Exception{
+        validacionParametroCliente(codigo);
+        Cliente clienteDB = cd.buscarClientePorCodigo(codigo);
+        validacionClienteExistente(clienteDB);
+        return clienteDB;        
     }
 }

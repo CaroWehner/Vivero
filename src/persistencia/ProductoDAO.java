@@ -1,4 +1,5 @@
 package persistencia;
+import java.util.*;
 
 public class ProductoDAO extends DAO {
     public void eliminarProducto(int codigo) throws Exception {

@@ -1,12 +1,16 @@
 import entidades.Cliente;
 import persistencia.ClienteDAO;
 import persistencia.ProductoDAO;
+import servicios.ClienteServicio;
 import java.sql.*;
 
 public class App {
     public static void main(String[] args) throws Exception {
         ClienteDAO pruebasClientes = new ClienteDAO();
         ProductoDAO pruebasProductos = new ProductoDAO();
+        ClienteServicio clienteServicio = new ClienteServicio();
+
+
 
         // Hago un ciclo For, para insertar datos de 5 personas
         for(int i = 1;i<=5;i++)
@@ -25,9 +29,10 @@ public class App {
 
             double limiteCredito = 25000.00;
             // Crear instancia de Cliente con los datos actuales del ciclo
-            Cliente cliente = new Cliente(codigoCliente, nombre, nombreContacto, apellidoContacto, telefono, fax, ciudad, region, pais, codigoPostal,idEmpleado, limiteCredito);
+            //Cliente cliente = new Cliente(codigoCliente, nombre, nombreContacto, apellidoContacto, telefono, fax, ciudad, region, pais, codigoPostal,idEmpleado, limiteCredito);
+            clienteServicio.crearNuevoCliente(codigoCliente, nombre, nombreContacto, apellidoContacto, telefono, fax, ciudad, region, pais, codigoPostal, idEmpleado, limiteCredito);
             // Agregar el cliente a la bbdd
-            pruebasClientes.guardarCliente(cliente);
+            //pruebasClientes.guardarCliente(cliente);
             System.out.println("Se guardo un cliente");
         }
         // Imprimo Codigo, nombre y apellido de todos los clientes registrados

@@ -4,7 +4,7 @@ import java.util.*;
 import persistencia.DAO;
 
 public class PedidoDAO {
-        public void guardarPedido(Pedido pedido) throws Exception {
+    public void guardarPedido(Pedido pedido) throws Exception {
         try {
             if (pedido == null) {
                 throw new Exception("El pedido no puede ser nulo.");
@@ -23,4 +23,21 @@ public class PedidoDAO {
             throw e;
         }
     }
+    public int obtenerIdPedido(Pedido pedido) throws Exception {
+        try {
+            if (pedido == null) {
+                throw new Exception("El pedido no puede ser nulo.");
+            }
+            String sql = "SELECT MAX(id_pedido) FROM pedido";
+            consultarDataBase(sql);
+
+            resultSet.next();
+            return resultSet.getInt(1);
+            
+
+        } catch (Exception e) {
+            throw e;
+        }
+    }
+
 }

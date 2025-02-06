@@ -1,17 +1,32 @@
 package servicios;
 
 import java.sql.Date;
+
+import entidades.DetallePedido;
 import entidades.Pedido;
+import persistencia.PedidoDAO;
 
 public class PedidoServicio {
+    private PedidoDAO pd;
+    private DetallePedido dp;
     
-    public Pedido crearNuevoCliente(int codigoPedido, Date fechaPedido, Date fechaEsperada, Date fechaEntrega, String estado,
+    public PedidoServicio() {
+        this.pd = new PedidoDAO();
+        this.dp = new DetallePedido();
+    }
+
+    public Pedido crearNuevoPedido(int codigoPedido, Date fechaPedido, Date fechaEsperada, Date fechaEntrega, String estado,
             String comentarios, int idCliente) throws Exception {
-        // Validaciones - Pueden estar metodo independiente.
-        //validacionesNyA(nombreContacto, apellidoContacto);
+
         Pedido pedido = new Pedido(codigoPedido, fechaPedido, fechaEsperada, fechaEntrega, estado,
         comentarios, idCliente);
-        cd.guardarPedido(pedido);
+        pd.guardarPedido(pedido);
         return pedido;
     }
+
+    public int obtenerIdPedido(){
+        
+    }
+
+    
 }
